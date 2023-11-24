@@ -1,0 +1,277 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+:root {
+  --primary-color: white;
+  --secondary-color: #232225;
+}
+
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #121113;
+  color: whitesmoke;
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  top: 87%;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tabs {
+  display: flex;
+  position: relative;
+  background-color: #fff;
+  border: 1px solid rgba(60,57,63,.2);
+  background-color: rgba(18,17,19,.4);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  padding: 0.75rem 0;
+  border-radius: 3rem;
+}
+.tabs * {
+  z-index: 2;
+}
+input[type="radio"] {
+  display: none;
+}
+
+label:hover {
+  transition: all 0.15s linear;
+  color: gray;
+}
+.tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 1.7rem;
+  width: 5.7rem;
+  font-size: 0.9rem;
+  font-weight: 300;
+  border-radius: 3rem;
+  cursor: pointer;
+  transition: color 0.15s ease-in;
+}
+
+input[type="radio"]:checked + label {
+  transition: all 0.15s ease-in-out;
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+input[id="radio-1"]:checked ~ .glider {
+  transform: translateX(0);
+}
+input[id="radio-2"]:checked ~ .glider {
+  width: 5.2rem;
+  padding: 0 1rem;
+  transform: translateX(100%);
+}
+
+input[id="radio-3"]:checked ~ .glider {
+  width: 4.5rem;
+  transform: translateX(250%);
+}
+.glider {
+  position: absolute;
+  display: flex;
+  height: 2.3rem;
+  width: 4.3rem;
+  margin-left: 0.7rem;
+  align-self: center;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  background-color: var(--secondary-color);
+  z-index: 1;
+  border-radius: 3rem;
+  transition: 0.25s ease-out;
+}
+
+main {
+  margin-top: 13rem;
+  position: relative;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  row-gap: 3rem;
+  padding-bottom: 4rem;
+  animation: fade-in-up 0.6s ease-in-out;
+}
+
+.head img {
+  height: 3.8rem;
+  width: 3.8rem;
+  border-radius: 3rem;
+  margin: 0 0.7rem;
+}
+
+.head {
+  align-items: center;
+  display: flex;
+}
+
+.head h1 {
+  font-weight: 600;
+  font-size: 1.5rem;
+  padding: 0.3rem 0;
+}
+
+.head h2 {
+  font-weight: 500;
+  color: #87838c;
+  font-size: 0.9rem;
+  margin-left: 0.2rem;
+  margin-bottom: 0.2rem;
+}
+
+body {
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-me {
+  padding: 0 1rem;
+}
+
+.about-me h3 {
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.about-me p {
+  padding: 1rem 0;
+  padding-bottom: 0;
+  width: 37rem;
+  text-align: justify;
+  font-size: 0.99rem;
+  color: #87838c;
+  font-weight: 500;
+}
+
+.about-me ul {
+  list-style: none;
+  padding: 1rem 0;
+  font-size: 0.99rem;
+  color: #87838c;
+  font-weight: 500;
+}
+
+.about-me li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.7rem;
+}
+
+.about-me a {
+  color: #b7b1be;
+  text-decoration: none;
+  font-weight: 400;
+  margin-left: 1rem;
+  transition: all 0.4s linear;
+}
+
+ul img {
+  filter: invert(100%);
+  height: 0.8rem;
+  width: 1rem;
+  transform: rotate(-43deg);
+}
+
+a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.fade-in-up {
+  animation: fade-in-up 0.6s ease-in-out;
+}
+
+.Projects h3{
+	font-size: 1.1rem;
+	font-weight: 500;
+}
+.Projects p{
+	text-align: center;
+	color: white;
+}
+
+.image{
+	height: 23rem;
+	display: flex;
+	justify-content: center;
+	width: 40rem;
+}
+.Projects img {
+	cursor: pointer;
+	transition: all 0.4s ease-in-out;
+  }
+  
+  .Projects img:hover {
+	transform: scale(1.02);
+  }
+  
+
+.Projects img{
+	object-position: center;
+    border-radius: .7rem;
+	max-width: 100%;
+	max-height: 100%;
+}
+
+.title{
+	display: flex;
+	justify-content: center;
+}
+.Projects .about-me{
+	padding: 0;
+}
+.Projects{
+	padding: 1rem;
+    top: 53%;
+    padding-bottom: 7rem;
+}
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 600px) {
+  main {
+    margin-top: 0%;
+    padding: 1rem;
+  }
+  .about-me p {
+    width: fit-content;
+  }
+  .Projects{
+	top: 10%;
+}
+  .image{
+	height: 23vh;
+	width: 87vw;
+  }
+.title{
+	display: flex;
+	justify-content: center;
+}
+}
+
