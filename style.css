@@ -211,7 +211,6 @@ a:hover {
 .image{
 	height: 23rem;
 	display: flex;
-	justify-content: center;
 	width: 40rem;
 }
 .Projects img {
@@ -255,23 +254,30 @@ a:hover {
 }
 
 @media (max-width: 600px) {
-  main {
-    margin-top: 0%;
+  .Home {
+    margin-top: 90%;
     padding: 1rem;
   }
   .about-me p {
     width: fit-content;
   }
+  .Connect{
+    height: 30vh;
+  }
   .Projects{
-	top: 10%;
+	top: 14%;
 }
   .image{
-	height: 23vh;
+	height: 25vh;
 	width: 87vw;
   }
 .title{
 	display: flex;
 	justify-content: center;
+}
+
+#Napster img{
+   width: 87dvw;
 }
 }
 
