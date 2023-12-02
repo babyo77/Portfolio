@@ -280,4 +280,8 @@ a:hover {
    width: 87dvw;
 }
 }
-
+.More h3:hover {
+  cursor: pointer;
+  transition: color .4s cubic-bezier(0.215, 0.610, 0.355, 1);
+  color: #87838c;
+}
