@@ -285,3 +285,9 @@ a:hover {
   transition: color .4s cubic-bezier(0.215, 0.610, 0.355, 1);
   color: #87838c;
 }
+
+.More{
+  position: relative;
+  top: -10%;
+}
+
