@@ -1,0 +1,713 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../output.css" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="https://i.ibb.co/YXd6143/favicon-32x32.png">
+  <title>Tanmay | Work</title>
+  <style>
+   @import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    body {
+        font-family: 'Inter','Poppins',sans-serif;
+        color: white;
+    }
+
+    .tooltip {
+        z-index: 100;
+    opacity: 0;
+    transform-origin: 50% 50% 0px;
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Add transition */
+    transform: translateX(-10px); /* Start position for the slide out effect */
+}
+
+
+.icon:hover .tooltip {
+    opacity: 1;
+    pointer-events: auto; /* Enable pointer events on the tooltip */
+    transform: translateX(0); /* Slide out effect */
+}
+
+
+
+.time {
+    font-family: 'DM Mono' ,sans-serif;
+}
+circle.fill-green {
+  fill: #2ebe8a; /* Add this line */
+}
+
+circle {
+  stroke: #2ebe8a;
+  stroke-width: 2px;
+  stroke-opacity: 1;
+}
+
+.pulse {
+  fill-opacity: 0;
+  transform-origin: 50% 50%;
+  animation-duration: 2s;
+  animation-name: pulse;
+  animation-iteration-count: infinite;
+}
+
+@keyframes pulse {
+  from {
+    stroke-width: 3px;
+    stroke-opacity: 1;
+    transform: scale(0.3);
+  }
+  to {
+    stroke-width: 0;
+    stroke-opacity: 0;
+    transform: scale(2);
+  }
+}
+
+
+
+.about, .work {
+    font-weight: 400;
+    font-size: 15px;
+    letter-spacing: 0em;
+    line-height: 1.5em;
+}
+
+
+
+
+.img img {
+    display: block; width: 100%; height: 100%; border-radius: inherit; object-position: center center; object-fit: contain; image-rendering: auto;
+}
+
+
+/* animation */
+.appear {
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
+  opacity: 0;
+  -webkit-transform: translateY(40px);
+          transform: translateY(40px);
+}
+
+.appear.inview {
+  opacity: 1;
+  -webkit-transform: none;
+          transform: none;
+  -webkit-transition-delay: 0.3s;
+          transition-delay: 0.3s;
+}
+
+.appear2 {
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
+  opacity: 0;
+  -webkit-transform: translateY(20px);
+          transform: translateY(20px);
+}
+
+.appear2.inview2 {
+  opacity: 1;
+  -webkit-transform: none;
+          transform: none;
+}
+
+.appear2.inview2:nth-child(1) {
+  -webkit-transition-delay: 0.1s;
+          transition-delay: 0.1s;
+}
+
+.appear2.inview2:nth-child(2) {
+  -webkit-transition-delay: 0.2s;
+          transition-delay: 0.2s;
+}
+
+.appear2.inview2:nth-child(3) {
+  -webkit-transition-delay: 0.3s;
+          transition-delay: 0.3s;
+}
+
+.appear2.inview2:nth-child(4) {
+  -webkit-transition-delay: 0.4s;
+          transition-delay: 0.4s;
+}
+
+.appear2.inview2:nth-child(5) {
+  -webkit-transition-delay: 0.5s;
+          transition-delay: 0.5s;
+}
+
+.appear3 {
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
+  opacity: 0;
+  -webkit-transform: translateY(40px);
+          transform: translateY(40px);
+}
+
+.appear3.inview {
+  opacity: 1;
+  -webkit-transform: none;
+          transform: none;
+  -webkit-transition-delay: 0.3s;
+          transition-delay: 0.3s;
+}
+
+
+/*=== Trigger  ===*/
+.animate {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+/*=== Optional Delays, change values here  ===*/
+.one {
+  -webkit-animation-delay: 0.5s;
+  -moz-animation-delay: 0.5s;
+  animation-delay: 0.5s;
+}
+
+.two {
+  -webkit-animation-delay: 1.5s;
+  -moz-animation-delay: 1.5s;
+  animation-delay: 1.5s;
+}
+
+.three {
+  -webkit-animation-delay: 2.5s;
+  -moz-animation-delay: 2.5s;
+  animation-delay: 2.5s;
+}
+
+.four {
+  -webkit-animation-delay: 3.5s;
+  -moz-animation-delay: 3.5s;
+  animation-delay: 3.5s;
+}
+
+.five {
+  -webkit-animation-delay: 4.5s;
+  -moz-animation-delay: 4.5s;
+  animation-delay: 4.5s;
+}
+
+.six {
+  -webkit-animation-delay: 5.5s;
+  -moz-animation-delay: 5.5s;
+  animation-delay: 5.5s;
+}
+
+.seven {
+  -webkit-animation-delay: 6.5s;
+  -moz-animation-delay: 6.5s;
+  animation-delay: 6.5s;
+}
+
+.eight {
+  -webkit-animation-delay: 7.5s;
+  -moz-animation-delay: 7.5s;
+  animation-delay: 7.5s;
+}
+
+/*=== Animations start here  ===*/
+
+/*==== FADE IN UP ===*/
+@-webkit-keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+.fadeInUp {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+}
+
+/*=== FADE IN DOWN ===*/
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+}
+@-webkit-keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+/*=== FADE IN LEFT ===*/
+@-webkit-keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+.fadeInLeft {
+  -webkit-animation-name: fadeInLeft;
+  animation-name: fadeInLeft;
+}
+
+/*==== FADE IN RIGHT ===*/
+@-webkit-keyframes fadeInRight {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+.fadeInRight {
+  -webkit-animation-name: fadeInRight;
+  animation-name: fadeInRight;
+}
+
+/*=== FADE IN  ===*/
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+
+/*=== FADE IN UP Big ===*/
+.fadeInUpBig {
+  -webkit-animation-name: fadeInUpBig;
+  animation-name: fadeInUpBig;
+}
+@-webkit-keyframes fadeInUpBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 2000px, 0);
+    transform: translate3d(0, 2000px, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+@keyframes fadeInUpBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 2000px, 0);
+    transform: translate3d(0, 2000px, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+/*=== FADE IN DOWN Big ===*/
+.fadeInDownBig {
+  -webkit-animation-name: fadeInDownBig;
+  animation-name: fadeInDownBig;
+}
+@-webkit-keyframes fadeInDownBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -2000px, 0);
+    transform: translate3d(0, -2000px, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+@keyframes fadeInDownBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -2000px, 0);
+    transform: translate3d(0, -2000px, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+/*=== FADE IN LEFT Big ===*/
+.fadeInLeftBig {
+  -webkit-animation-name: fadeInLeftBig;
+  animation-name: fadeInLeftBig;
+}
+@-webkit-keyframes fadeInLeftBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-2000px, 0, 0);
+    transform: translate3d(-2000px, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+@keyframes fadeInLeftBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-2000px, 0, 0);
+    transform: translate3d(-2000px, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+/*=== FADE IN RIGHT Big ===*/
+.fadeInRightBig {
+  -webkit-animation-name: fadeInRightBig;
+  animation-name: fadeInRightBig;
+}
+@-webkit-keyframes fadeInRightBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(2000px, 0, 0);
+    transform: translate3d(2000px, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+@keyframes fadeInRightBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(2000px, 0, 0);
+    transform: translate3d(2000px, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 2vh;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f100;
+  border-radius: 2vh;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: 1vh;
+  background: #424242;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+  </style>
+</head>
+<body class="bg-bg">
+  <div class="root flex">
+
+        <!--DESKTOP SIDEBAR-->
+    <div class="sidebar hidden  lg:flex justify-center items-center h-screen w-[3%] px-8 border-r-white border border-y-0 border-l-transparent border-opacity-10">
+        <div>
+            <a href="../index.html" >
+            <div class="icon">
+                <div class="tooltip items-center flex bg-secondary2 absolute left-14 text-white text-[12.5px] border border-white border-opacity-5 p-1 rounded-lg">Home <span class="bg-accent border border-white border-opacity-5 px-1.5 rounded-sm ml-1">1</span></div>
+                <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 12.2039C2 9.91549 2 8.77128 2.5192 7.82274C3.0384 6.87421 3.98695 6.28551 5.88403 5.10813L7.88403 3.86687C9.88939 2.62229 10.8921 2 12 2C13.1079 2 14.1106 2.62229 16.116 3.86687L18.116 5.10812C20.0131 6.28551 20.9616 6.87421 21.4808 7.82274C22 8.77128 22 9.91549 22 12.2039V13.725C22 17.6258 22 19.5763 20.8284 20.7881C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.7881C2 19.5763 2 17.6258 2 13.725V12.2039Z" stroke="#626262" stroke-width="1.5"/>
+                    <path d="M15 18H9" stroke="#232323" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+            </div>
+        </a>
+        <a href="../work.html" class="">
+            <div class="icon mt-5">
+                <div class="tooltip items-center flex bg-secondary2 absolute left-14 text-white text-[12.5px] border border-white border-opacity-5 p-1 rounded-lg">Work <span class="bg-accent border border-white border-opacity-5 px-1.5 rounded-sm ml-1">2</span></div>
+                <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 9H15M9 9V15M9 9V6C9 4.34315 7.65685 3 6 3C4.34315 3 3 4.34315 3 6C3 7.65685 4.34315 9 6 9H9ZM15 9V15M15 9H18C19.6569 9 21 7.65685 21 6C21 4.34315 19.6569 3 18 3C16.3431 3 15 4.34315 15 6V9ZM15 15H9M15 15V18C15 19.6569 16.3431 21 18 21C19.6569 21 21 19.6569 21 18C21 16.3431 19.6569 15 18 15H15ZM9 15L6 15C4.34315 15 3 16.3431 3 18C3 19.6569 4.34315 21 6 21C7.65685 21 9 19.6569 9 18V15Z" stroke="#dedede" stroke-width="1.5"/>
+                    </svg>
+            </div>
+            </a>
+
+            <a href="../stack.html" >
+                <div class="icon mt-5">
+                    <div class="tooltip items-center flex bg-secondary2 absolute left-14 text-white text-[12.5px] border border-white border-opacity-5 p-1 rounded-lg">Stack <span class="bg-accent border border-white border-opacity-5 px-1.5 rounded-sm ml-1">3</span></div>
+                    <svg width="24px" height="24px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" version="1.1" fill="none" stroke="#626262" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+                        <path d="m1.75 11 6.25 3.25 6.25-3.25m-12.5-3 6.25 3.25 6.25-3.25m-6.25-6.25-6.25 3.25 6.25 3.25 6.25-3.25z"/>
+                        </svg>
+                </div>
+                </a>
+        </div>
+    </div>
+
+
+    <!--MOBILE SIDEBAR-->
+    <div class="sidebar bg-bg z-50 lg:hidden flex justify-center items-center w-screen fixed bottom-0 px-8 border-t-white border border-b-0 border-x-transparent border-opacity-10 align-items-center">
+        <div class="flex justify-center items-center my-5 gap-8">
+            <a href="../index.html" class="items-center justify-center flex">
+            <div class="icon">
+               
+                <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 12.2039C2 9.91549 2 8.77128 2.5192 7.82274C3.0384 6.87421 3.98695 6.28551 5.88403 5.10813L7.88403 3.86687C9.88939 2.62229 10.8921 2 12 2C13.1079 2 14.1106 2.62229 16.116 3.86687L18.116 5.10812C20.0131 6.28551 20.9616 6.87421 21.4808 7.82274C22 8.77128 22 9.91549 22 12.2039V13.725C22 17.6258 22 19.5763 20.8284 20.7881C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.7881C2 19.5763 2 17.6258 2 13.725V12.2039Z" stroke="#626262" stroke-width="1.5"/>
+                    <path d="M15 18H9" stroke="#232323" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+            </div>
+        </a>
+        <a href=""  class="items-center justify-center flex">
+            <div class="icon">
+               
+                <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 9H15M9 9V15M9 9V6C9 4.34315 7.65685 3 6 3C4.34315 3 3 4.34315 3 6C3 7.65685 4.34315 9 6 9H9ZM15 9V15M15 9H18C19.6569 9 21 7.65685 21 6C21 4.34315 19.6569 3 18 3C16.3431 3 15 4.34315 15 6V9ZM15 15H9M15 15V18C15 19.6569 16.3431 21 18 21C19.6569 21 21 19.6569 21 18C21 16.3431 19.6569 15 18 15H15ZM9 15L6 15C4.34315 15 3 16.3431 3 18C3 19.6569 4.34315 21 6 21C7.65685 21 9 19.6569 9 18V15Z" stroke="#dedede" stroke-width="1.5"/>
+                    </svg>
+            </div>
+            </a>
+
+            <a href="../stack.html" class="items-center justify-center flex">
+                <div class="icon ">
+                   
+                    <svg width="24px" height="24px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" version="1.1" fill="none" stroke="#626262" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+                        <path d="m1.75 11 6.25 3.25 6.25-3.25m-12.5-3 6.25 3.25 6.25-3.25m-6.25-6.25-6.25 3.25 6.25 3.25 6.25-3.25z"/>
+                        </svg>
+                </div>
+                </a>
+        </div>
+    </div>
+
+<!--MOBILE POSTS SIDEBAR-->
+<div class="fixed z-50 lg:hidden bg-bg border-b-white border border-x-0 border-b-transparent border-t-0 w-screen border-opacity-10 p-5">
+    <div class="justify-between items-center flex">
+        <div class="title">
+            <h1 class="text-[15px]">Work</h1>
+        </div>
+        <div class="hamburger" id="hamburger-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+            </svg>
+        </div>
+    </div>
+</div>
+<div class="overlay hidden fixed top-0 left-0 w-full h-full bg-black opacity-50 z-40 transition-opacity duration-300"></div>
+<div class="mobile-posts fixed bg-bg z-50 h-screen lg:hidden border-r-white border border-y-0 border-l-transparent border-opacity-10 w-[21rem] p-3 transform -translate-x-full transition-transform duration-300" id="mobile-posts">
+    <div class="pl-3 pb-2">
+        <h3 class="text-white text-opacity-40 tracking-wide text-sm mt-5">Now Viewing</h3>
+    </div>
+    <a href="">
+        <div class="p-3 rounded-xl w-full bg-secondary2 bg-opacity-60">
+            <h2>Napster</h2>
+            <p class="text-white text-opacity-40 text-[15px] mt-1">A fully functional Music PWA app with all Features like Lyrics and Lyrics Share on social Media using ReactJS</p>
+        </div>
+    </a>
+    <div class="pl-3 pb-2">
+        <h3 class="text-white text-opacity-40 tracking-wide text-sm mt-5 font-normal">Up Next</h3>
+    </div>
+    <a href="./ngl.html">
+        <div class="p-3 rounded-xl w-full hover:bg-opacity-60 hover:bg-secondary2 duration-300 ease-in-out">
+            <h2>Ngl Clone</h2>
+            <p class="text-white text-opacity-40 text-[15px] mt-1">A fully functional live chat app using NextJS</p>
+        </div>
+    </a>
+</div>
+
+
+
+
+
+
+
+
+
+
+    
+    
+<!--DESKTOP POSTS SIDEBAR-->
+<div class="posts fadeIn animate  hidden lg:block border-r-white border border-y-0 border-l-transparent border-opacity-10 w-[21rem]  p-3">
+        <div class="mt-3 pl-3">
+            <h1 class="text-[15px]">Work</h1>
+        </div>
+        <div class="pl-3 pb-2">
+            <h3 class="text-white text-opacity-40 tracking-wide text-sm mt-5">Now Viewing</h3>
+        </div>
+
+        <a href="">
+        <div class="p-3 rounded-xl w-full bg-secondary2 bg-opacity-60">
+            <h2>Napster</h2>
+            <p class="text-white text-opacity-40 text-[15px] mt-1">A fully functional Music PWA app with all Features like Lyrics and Lyrics Share on social Media using ReactJS</p>
+        </div>
+    </a>
+
+        <div class="pl-3 pb-2">
+            <h3 class="text-white text-opacity-40 tracking-wide text-sm mt-5 font-normal">Up Next</h3>
+        </div>
+
+        <a href="./ngl.html">
+            <div class="p-3 rounded-xl w-full hover:bg-opacity-60 hover:bg-secondary2 duration-300 ease-in-out">
+                <h2>Ngl Clone</h2>
+                <p class="text-white text-opacity-40 text-[15px] mt-1">A fully functional live chat app using NextJS</p>
+            </div>
+        </a>
+
+       
+    </div>
+
+    <div class="main mx-auto w-[35rem] px-6 sm:px-4 sm:my-8 mt-20 mb-24">
+        <div class="title">
+          <a href="https://napster-drx.vercel.app/" target="_blank">
+            <div class="header rounded-1xl appear two">
+                <img class="rounded-3xl w-[540px] h-[280px] object-cover" src="https://www.apple.com/v/apple-music/aa/images/shared/og__ckjrh2mu8b2a_image.png?202403220237">
+            </div>
+          </a>
+            <div class="mt-10 fadeInUp animate mx-1 justify-between flex items-center">
+                <div class="">
+                <h1 class="text-2xl">Napster</h1>
+            </div>
+                <div class="">
+                    <p class="text-white text-opacity-80 text-xs">07 / 03 / 2024</p>
+                </div>
+            </div>
+           
+            <div class="paragraph fadeIn animate one ml-2 mt-5 text-white text-opacity-90 text-[15px] tracking-[0.02rem]">
+              <p>Napster, a Music PWA App , Made for IOS users Specially.<br><br>
+
+                <span class=" font-bold">
+                  Teach used -
+                </span>   React, Tailwind CSS, Shadcn ui, Appwrite, Express JS<br><br>
+
+                First, I tackled React.js for the frontend. 
+                AppWrite jumped in to handle all the database stuff, making it a breeze to manage data.Tailwind CSS and Shadcn? Let's just say it made styling a whole lot quicker.<br><br>
+                
+               
+                During development, I ran into my fair share of bumps – like debugging Features Like Lyrics, fine-tuning the UI with Tailwind and Shadcn, etc. But each hurdle taught me something new and <span class=" font-bold">
+
+                  I am Looking Forward to add Recommendation System and Mini Games Like Snake and Pong.
+                </span>
+                  <br><br>
+                
+                Creating my own Music App wasn't just about copying a cool app. It was about exploring new tech and getting better at coding. </p>                                                                  
+        
+                </p>
+                
+            </div>
+        </div>
+    </div>
+    </div>    
+  </div>
+  <script>
+    document.addEventListener('keydown', function(event) {
+    if (event.key === "1") {
+        window.location.href = '../index.html';
+    } else if (event.key === "3") {
+        window.location.href = '../stack.html'; 
+    }
+});
+
+  </script>
+  <script src="../js/scroll.js"></script>
+  <script src="../js/sidebar.js"></script>
+</body>
+</html>

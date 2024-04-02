@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://i.ibb.co/YXd6143/favicon-32x32.png"
+    />
+    <title>Tanmay | Stack</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+      body {
+        font-family: "Inter", "Poppins", sans-serif;
+        color: white;
+      }
+
+      .tooltip {
+        opacity: 0;
+        transform-origin: 50% 50% 0px;
+        transition: opacity 0.3s ease, transform 0.3s ease; /* Add transition */
+        transform: translateX(
+          -10px
+        ); /* Start position for the slide out effect */
+      }
+
+      .icon:hover .tooltip {
+        opacity: 1;
+        pointer-events: auto; /* Enable pointer events on the tooltip */
+        transform: translateX(0); /* Slide out effect */
+      }
+
+      .time {
+        font-family: "DM Mono", sans-serif;
+      }
+      circle.fill-green {
+        fill: #2ebe8a; /* Add this line */
+      }
+
+      circle {
+        stroke: #2ebe8a;
+        stroke-width: 2px;
+        stroke-opacity: 1;
+      }
+
+      .pulse {
+        fill-opacity: 0;
+        transform-origin: 50% 50%;
+        animation-duration: 2s;
+        animation-name: pulse;
+        animation-iteration-count: infinite;
+      }
+
+      @keyframes pulse {
+        from {
+          stroke-width: 3px;
+          stroke-opacity: 1;
+          transform: scale(0.3);
+        }
+        to {
+          stroke-width: 0;
+          stroke-opacity: 0;
+          transform: scale(2);
+        }
+      }
+
+      .tooltip2 {
+        opacity: 0;
+        transform-origin: 50% 50% 0px;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        transform: translateY(-10px);
+        pointer-events: none;
+      }
+
+      .link:hover .tooltip2 {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+
+      .about,
+      .work {
+        font-weight: 400;
+        font-size: 15px;
+        letter-spacing: 0em;
+        line-height: 1.5em;
+      }
+
+      .img img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border-radius: inherit;
+        object-position: center center;
+        object-fit: contain;
+        image-rendering: auto;
+      }
+
+      /* animation */
+      .appear {
+        -webkit-transition: all 0.8s;
+        transition: all 0.8s;
+        opacity: 0;
+        -webkit-transform: translateY(40px);
+        transform: translateY(40px);
+      }
+
+      .appear.inview {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+        -webkit-transition-delay: 0.3s;
+        transition-delay: 0.3s;
+      }
+
+      .appear2 {
+        -webkit-transition: all 0.8s;
+        transition: all 0.8s;
+        opacity: 0;
+        -webkit-transform: translateY(20px);
+        transform: translateY(20px);
+      }
+
+      .appear2.inview2 {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+      }
+
+      .appear2.inview2:nth-child(1) {
+        -webkit-transition-delay: 0.1s;
+        transition-delay: 0.1s;
+      }
+
+      .appear2.inview2:nth-child(2) {
+        -webkit-transition-delay: 0.2s;
+        transition-delay: 0.2s;
+      }
+
+      .appear2.inview2:nth-child(3) {
+        -webkit-transition-delay: 0.3s;
+        transition-delay: 0.3s;
+      }
+
+      .appear2.inview2:nth-child(4) {
+        -webkit-transition-delay: 0.4s;
+        transition-delay: 0.4s;
+      }
+
+      .appear2.inview2:nth-child(5) {
+        -webkit-transition-delay: 0.5s;
+        transition-delay: 0.5s;
+      }
+
+      .appear3 {
+        -webkit-transition: all 0.8s;
+        transition: all 0.8s;
+        opacity: 0;
+        -webkit-transform: translateY(40px);
+        transform: translateY(40px);
+      }
+
+      .appear3.inview {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+        -webkit-transition-delay: 0.3s;
+        transition-delay: 0.3s;
+      }
+
+      /*=== Trigger  ===*/
+      .animate {
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+      }
+
+      /*=== Optional Delays, change values here  ===*/
+      .one {
+        -webkit-animation-delay: 0.5s;
+        -moz-animation-delay: 0.5s;
+        animation-delay: 0.5s;
+      }
+
+      .two {
+        -webkit-animation-delay: 1.5s;
+        -moz-animation-delay: 1.5s;
+        animation-delay: 1.5s;
+      }
+
+      .three {
+        -webkit-animation-delay: 2.5s;
+        -moz-animation-delay: 2.5s;
+        animation-delay: 2.5s;
+      }
+
+      .four {
+        -webkit-animation-delay: 3.5s;
+        -moz-animation-delay: 3.5s;
+        animation-delay: 3.5s;
+      }
+
+      .five {
+        -webkit-animation-delay: 4.5s;
+        -moz-animation-delay: 4.5s;
+        animation-delay: 4.5s;
+      }
+
+      .six {
+        -webkit-animation-delay: 5.5s;
+        -moz-animation-delay: 5.5s;
+        animation-delay: 5.5s;
+      }
+
+      .seven {
+        -webkit-animation-delay: 6.5s;
+        -moz-animation-delay: 6.5s;
+        animation-delay: 6.5s;
+      }
+
+      .eight {
+        -webkit-animation-delay: 7.5s;
+        -moz-animation-delay: 7.5s;
+        animation-delay: 7.5s;
+      }
+
+      /*=== Animations start here  ===*/
+
+      /*==== FADE IN UP ===*/
+      @-webkit-keyframes fadeInUp {
+        from {
+          opacity: 0;
+          -webkit-transform: translate3d(0, 100%, 0);
+          transform: translate3d(0, 100%, 0);
+        }
+
+        to {
+          opacity: 1;
+          -webkit-transform: none;
+          transform: none;
+        }
+      }
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          -webkit-transform: translate3d(0, 100%, 0);
+          transform: translate3d(0, 100%, 0);
+        }
+
+        to {
+          opacity: 1;
+          -webkit-transform: none;
+          transform: none;
+        }
+      }
+
+      .fadeInUp {
+        -webkit-animation-name: fadeInUp;
+        animation-name: fadeInUp;
+      }
+
+      /*=== FADE IN DOWN ===*/
+      .fadeInDown {
+        -webkit-animation-name: fadeInDown;
+        animation-name: fadeInDown;
+      }
+      @-webkit-keyframes fadeInDown {
+        0% {
+          opacity: 0;
+          -webkit-transform: translate3d(0, -100%, 0);
+          transform: translate3d(0, -100%, 0);
+        }
+        100% {
+          opacity: 1;
+          -webkit-transform: none;
+          transform: none;
+        }
+      }
+      @keyframes fadeInDown {
+        0% {
+          opacity: 0;
+          -webkit-transform: translate3d(0, -100%, 0);
+          transform: translate3d(0, -100%, 0);
+        }
+        100% {
+          opacity: 1;
+          -webkit-transform: none;
+          transform: none;
+        }
+      }
+
+      /*=== FADE IN LEFT ===*/
+      @-webkit-keyframes fadeInLeft {
+        from {
+          opacity: 0;
+          -webkit-transform: translate3d(-100%, 0, 0);
+          transform: translate3d(-100%, 0, 0);
+        }
+
+        to {
+          opacity: 1;
+          -webkit-transform: none;
+          transform: none;
+        }
+      }
+      @keyframes fadeInLeft {
+        from {
+          opacity: 0;
+          -webkit-transform: translate3d(-100%, 0, 0);
+          transform: translate3d(-100%, 0, 0);
+        }
+
+        to {
+          opacity: 1;
+          -webkit-transform: none;
+          transform: none;
+        }
+      }
+
+      .fadeInLeft {
+        -webkit-animation-name: fadeInLeft;
+        animation-name: fadeInLeft;
+      }
+
+      /*==== FADE IN RIGHT ===*/
+      @-webkit-keyframes fadeInRight {
+        from {
+          opacity: 0;
+          -webkit-transform: translate3d(100%, 0, 0);
+          transform: translate3d(100%, 0, 0);
+        }
+
+        to {
+          opacity: 1;
+          -webkit-transform: none;
+          transform: none;
+        }
+      }
+      @keyframes fadeInRight {
+        from {
+          opacity: 0;
+          -webkit-transform: translate3d(100%, 0, 0);
+          transform: translate3d(100%, 0, 0);
+        }
+
+        to {
+          opacity: 1;
+          -webkit-transform: none;
+          transform: none;
+        }
+      }
+
+      .fadeInRight {
+        -webkit-animation-name: fadeInRight;
+        animation-name: fadeInRight;
+      }
+
+      /*=== FADE IN  ===*/
+      @-webkit-keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+
+        to {
+          opacity: 1;
+        }
+      }
+      .fadeIn {
+        -webkit-animation-name: fadeIn;
+        animation-name: fadeIn;
+      }
+
+      /*=== FADE IN UP Big ===*/
+      .fadeInUpBig {
+        -webkit-animation-name: fadeInUpBig;
+        animation-name: fadeInUpBig;
+      }
+      @-webkit-keyframes fadeInUpBig {
+        0% {
+          opacity: 0;
+          -webkit-transform: translate3d(0, 2000px, 0);
+          transform: translate3d(0, 2000px, 0);
+        }
+        100% {
+          opacity: 1;
+          -webkit-transform: none;
+          transform: none;
+        }
+      }
+      @keyframes fadeInUpBig {
+        0% {
+          opacity: 0;
+          -webkit-transform: translate3d(0, 2000px, 0);
+          transform: translate3d(0, 2000px, 0);
+        }
+        100% {
+          opacity: 1;
+          -webkit-transform: none;
+          transform: none;
+        }
+      }
+
+      /*=== FADE IN DOWN Big ===*/
+      .fadeInDownBig {
+        -webkit-animation-name: fadeInDownBig;
+        animation-name: fadeInDownBig;
+      }
+      @-webkit-keyframes fadeInDownBig {
+        0% {
+          opacity: 0;
+          -webkit-transform: translate3d(0, -2000px, 0);
+          transform: translate3d(0, -2000px, 0);
+        }
+        100% {
+          opacity: 1;
+          -webkit-transform: none;
+          transform: none;
+        }
+      }
+      @keyframes fadeInDownBig {
+        0% {
+          opacity: 0;
+          -webkit-transform: translate3d(0, -2000px, 0);
+          transform: translate3d(0, -2000px, 0);
+        }
+        100% {
+          opacity: 1;
+          -webkit-transform: none;
+          transform: none;
+        }
+      }
+
+      /*=== FADE IN LEFT Big ===*/
+      .fadeInLeftBig {
+        -webkit-animation-name: fadeInLeftBig;
+        animation-name: fadeInLeftBig;
+      }
+      @-webkit-keyframes fadeInLeftBig {
+        0% {
+          opacity: 0;
+          -webkit-transform: translate3d(-2000px, 0, 0);
+          transform: translate3d(-2000px, 0, 0);
+        }
+        100% {
+          opacity: 1;
+          -webkit-transform: none;
+          transform: none;
+        }
+      }
+      @keyframes fadeInLeftBig {
+        0% {
+          opacity: 0;
+          -webkit-transform: translate3d(-2000px, 0, 0);
+          transform: translate3d(-2000px, 0, 0);
+        }
+        100% {
+          opacity: 1;
+          -webkit-transform: none;
+          transform: none;
+        }
+      }
+
+      /*=== FADE IN RIGHT Big ===*/
+      .fadeInRightBig {
+        -webkit-animation-name: fadeInRightBig;
+        animation-name: fadeInRightBig;
+      }
+      @-webkit-keyframes fadeInRightBig {
+        0% {
+          opacity: 0;
+          -webkit-transform: translate3d(2000px, 0, 0);
+          transform: translate3d(2000px, 0, 0);
+        }
+        100% {
+          opacity: 1;
+          -webkit-transform: none;
+          transform: none;
+        }
+      }
+      @keyframes fadeInRightBig {
+        0% {
+          opacity: 0;
+          -webkit-transform: translate3d(2000px, 0, 0);
+          transform: translate3d(2000px, 0, 0);
+        }
+        100% {
+          opacity: 1;
+          -webkit-transform: none;
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-bg">
+    <div class="root flex">
+      <!--DESKTOP SIDEBAR-->
+      <div
+        class="sidebar hidden fixed md:flex justify-center items-center h-screen w-[3%] px-8 border-r-white border border-y-0 border-l-transparent border-opacity-10"
+      >
+        <div>
+          <a href="./index.html">
+            <div class="icon">
+              <div
+                class="tooltip items-center flex bg-secondary2 absolute left-14 text-white text-[12.5px] border border-white border-opacity-5 p-1 rounded-lg"
+              >
+                Home
+                <span
+                  class="bg-accent border border-white border-opacity-5 px-1.5 rounded-sm ml-1"
+                  >1</span
+                >
+              </div>
+              <svg
+                width="24px"
+                height="24px"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M2 12.2039C2 9.91549 2 8.77128 2.5192 7.82274C3.0384 6.87421 3.98695 6.28551 5.88403 5.10813L7.88403 3.86687C9.88939 2.62229 10.8921 2 12 2C13.1079 2 14.1106 2.62229 16.116 3.86687L18.116 5.10812C20.0131 6.28551 20.9616 6.87421 21.4808 7.82274C22 8.77128 22 9.91549 22 12.2039V13.725C22 17.6258 22 19.5763 20.8284 20.7881C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.7881C2 19.5763 2 17.6258 2 13.725V12.2039Z"
+                  stroke="#626262"
+                  stroke-width="1.5"
+                />
+                <path
+                  d="M15 18H9"
+                  stroke="#232323"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+          </a>
+          <a href="./work/napster.html" class="">
+            <div class="icon mt-5">
+              <div
+                class="tooltip items-center flex bg-secondary2 absolute left-14 text-white text-[12.5px] border border-white border-opacity-5 p-1 rounded-lg"
+              >
+                Work
+                <span
+                  class="bg-accent border border-white border-opacity-5 px-1.5 rounded-sm ml-1"
+                  >2</span
+                >
+              </div>
+              <svg
+                width="24px"
+                height="24px"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9 9H15M9 9V15M9 9V6C9 4.34315 7.65685 3 6 3C4.34315 3 3 4.34315 3 6C3 7.65685 4.34315 9 6 9H9ZM15 9V15M15 9H18C19.6569 9 21 7.65685 21 6C21 4.34315 19.6569 3 18 3C16.3431 3 15 4.34315 15 6V9ZM15 15H9M15 15V18C15 19.6569 16.3431 21 18 21C19.6569 21 21 19.6569 21 18C21 16.3431 19.6569 15 18 15H15ZM9 15L6 15C4.34315 15 3 16.3431 3 18C3 19.6569 4.34315 21 6 21C7.65685 21 9 19.6569 9 18V15Z"
+                  stroke="#626262"
+                  stroke-width="1.5"
+                />
+              </svg>
+            </div>
+          </a>
+
+          <a href="./stack.html">
+            <div class="icon mt-5">
+              <div
+                class="tooltip items-center flex bg-secondary2 absolute left-14 text-white text-[12.5px] border border-white border-opacity-5 p-1 rounded-lg"
+              >
+                Stack
+                <span
+                  class="bg-accent border border-white border-opacity-5 px-1.5 rounded-sm ml-1"
+                  >3</span
+                >
+              </div>
+              <svg
+                width="24px"
+                height="24px"
+                viewBox="0 0 16 16"
+                xmlns="http://www.w3.org/2000/svg"
+                version="1.1"
+                fill="none"
+                stroke="#dedede"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              >
+                <path
+                  d="m1.75 11 6.25 3.25 6.25-3.25m-12.5-3 6.25 3.25 6.25-3.25m-6.25-6.25-6.25 3.25 6.25 3.25 6.25-3.25z"
+                />
+              </svg>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!--MOBILE SIDEBAR-->
+      <div
+        class="sidebar z-50 bg-bg md:hidden flex justify-center items-center w-screen fixed bottom-0 px-8 border-t-white border border-b-0 border-x-transparent border-opacity-10 align-items-center"
+      >
+        <div class="flex justify-center items-center my-5 gap-8">
+          <a href="./index.html" class="items-center justify-center flex">
+            <div class="icon">
+              <svg
+                width="24px"
+                height="24px"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M2 12.2039C2 9.91549 2 8.77128 2.5192 7.82274C3.0384 6.87421 3.98695 6.28551 5.88403 5.10813L7.88403 3.86687C9.88939 2.62229 10.8921 2 12 2C13.1079 2 14.1106 2.62229 16.116 3.86687L18.116 5.10812C20.0131 6.28551 20.9616 6.87421 21.4808 7.82274C22 8.77128 22 9.91549 22 12.2039V13.725C22 17.6258 22 19.5763 20.8284 20.7881C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.7881C2 19.5763 2 17.6258 2 13.725V12.2039Z"
+                  stroke="#626262"
+                  stroke-width="1.5"
+                />
+                <path
+                  d="M15 18H9"
+                  stroke="transparent"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+          </a>
+          <a
+            href="./work/napster.html"
+            class="items-center justify-center flex"
+          >
+            <div class="icon">
+              <svg
+                width="24px"
+                height="24px"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9 9H15M9 9V15M9 9V6C9 4.34315 7.65685 3 6 3C4.34315 3 3 4.34315 3 6C3 7.65685 4.34315 9 6 9H9ZM15 9V15M15 9H18C19.6569 9 21 7.65685 21 6C21 4.34315 19.6569 3 18 3C16.3431 3 15 4.34315 15 6V9ZM15 15H9M15 15V18C15 19.6569 16.3431 21 18 21C19.6569 21 21 19.6569 21 18C21 16.3431 19.6569 15 18 15H15ZM9 15L6 15C4.34315 15 3 16.3431 3 18C3 19.6569 4.34315 21 6 21C7.65685 21 9 19.6569 9 18V15Z"
+                  stroke="#626262"
+                  stroke-width="1.5"
+                />
+              </svg>
+            </div>
+          </a>
+
+          <a href="" class="items-center justify-center flex">
+            <div class="icon">
+              <svg
+                width="24px"
+                height="24px"
+                viewBox="0 0 16 16"
+                xmlns="http://www.w3.org/2000/svg"
+                version="1.1"
+                fill="none"
+                stroke="#dedede"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              >
+                <path
+                  d="m1.75 11 6.25 3.25 6.25-3.25m-12.5-3 6.25 3.25 6.25-3.25m-6.25-6.25-6.25 3.25 6.25 3.25 6.25-3.25z"
+                />
+              </svg>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="main mx-auto w-[40rem] px-6 sm:px-4 sm:my-8 mt-10 mb-24">
+        <div class="title appear md:pl-[6.5rem]">
+          <h1 class="text-2xl">Tech Stack</h1>
+          <h3 class="text-white text-opacity-40 tracking-wide">
+            Current Stack
+          </h3>
+        </div>
+
+        <div class="work mt-16 flex flex-wrap">
+          <div class="md:pr-10 animate fadeIn two pr-0 md:flex hidden">
+            <span class="text-white text-opacity-60 absolute">Languages</span>
+          </div>
+          <div class="flex-row fadeInUp animate flex gap-3 md:ml-[6.5rem]">
+            <a class="work-1">
+              <div class="bg-secondary rounded-md p-3">
+                <div
+                  class="img items-center justify-center flex h-[9rem] w-[9rem]"
+                >
+                  <img
+                    src="https://miro.medium.com/v2/resize:fit:1200/1*WA_9JsyqFkge2HwYKcdJQw.png"
+                  />
+                </div>
+                <div class="tag">
+                  <span
+                    class="border border-white border-opacity-10 p-1 rounded-md text-white text-xs text-opacity-60"
+                    >CODE</span
+                  >
+                </div>
+                <div class="name mt-2 text-white text-opacity-90">
+                  <h3>React JS</h3>
+                </div>
+              </div>
+            </a>
+
+            <a class="work-1">
+              <div class="bg-secondary rounded-md p-3">
+                <div
+                  class="img rounded-lg items-center justify-center flex p-8 h-[9rem] w-[9rem]"
+                >
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEJD2kMz7mFOm1VnsNE36ceYbDgWp483t-pCih3rxa-w&s"
+                  />
+                </div>
+                <div class="tag">
+                  <span
+                    class="border border-white border-opacity-10 p-1 rounded-md text-white text-xs text-opacity-60"
+                    >CODE</span
+                  >
+                </div>
+                <div class="name mt-2 text-white text-opacity-90">
+                  <h3>Type Script</h3>
+                </div>
+              </div>
+            </a>
+
+            <a class="work-1 md:flex hidden">
+              <div class="bg-secondary rounded-md p-3">
+                <div
+                  class="img rounded-lg items-center justify-center flex p-5 h-[9rem] w-[9rem]"
+                >
+                  <img
+                    src="https://miro.medium.com/v2/resize:fit:300/1*R4c8lHBHuH5qyqOtZb3h-w.png"
+                  />
+                </div>
+                <div class="tag">
+                  <span
+                    class="border border-white border-opacity-10 p-1 rounded-md text-white text-xs text-opacity-60"
+                    >DATABASE</span
+                  >
+                </div>
+                <div class="name mt-2 text-white text-opacity-90">
+                  <h3>Firebase</h3>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div
+            class="md:ml-[6.5rem] mt-4 fadeInUp animate one flex-row flex gap-3"
+          >
+            <a class="work-1">
+              <div class="bg-secondary rounded-md p-3">
+                <div
+                  class="img p-8 rounded-lg items-center justify-center flex h-[9rem] w-[9rem]"
+                >
+                  <img
+                    src="https://avatars.githubusercontent.com/u/25003669?s=280&v=4"
+                  />
+                </div>
+                <div class="tag">
+                  <span
+                    class="border border-white border-opacity-10 p-1 rounded-md text-white text-xs text-opacity-60"
+                    >DATABASE</span
+                  >
+                </div>
+                <div class="name mt-2 text-white text-opacity-90">
+                  <h3>AppWrite</h3>
+                </div>
+              </div>
+            </a>
+
+            <a class="work-1">
+              <div class="bg-secondary rounded-md p-3">
+                <div
+                  class="img items-center p-8 justify-center flex h-[9rem] w-[9rem]"
+                >
+                  <img
+                    src="https://static-00.iconduck.com/assets.00/node-js-icon-454x512-nztofx17.png"
+                  />
+                </div>
+                <div class="tag">
+                  <span
+                    class="border border-white border-opacity-10 p-1 rounded-md text-white text-xs text-opacity-60"
+                    >BACKEND</span
+                  >
+                </div>
+                <div class="name mt-2 text-white text-opacity-90">
+                  <h3>Node JS</h3>
+                </div>
+              </div>
+            </a>
+
+            <a class="work-1 md:flex hidden">
+              <div class="bg-secondary rounded-md p-3">
+                <div
+                  class="img p-5 items-center justify-center flex h-[9rem] w-[9rem]"
+                >
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Webysther_20160423_-_Elephpant.svg/2560px-Webysther_20160423_-_Elephpant.svg.png"
+                  />
+                </div>
+                <div class="tag">
+                  <span
+                    class="border border-white border-opacity-10 p-1 rounded-md text-white text-xs text-opacity-60"
+                    >BACKEND</span
+                  >
+                </div>
+                <div class="name mt-2 text-white text-opacity-90">
+                  <h3>Php</h3>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div
+            class="md:ml-[6.5rem] mt-4 flex-row flex gap-3 fadeInUp two animate"
+          >
+            <a class="work-1">
+              <div class="bg-secondary rounded-md p-3">
+                <div
+                  class="img p-8 items-center justify-center flex h-[9rem] w-[9rem]"
+                >
+                  <img
+                    src="https://blog.postman.com/wp-content/uploads/2018/04/logo-mark-300x300.png"
+                  />
+                </div>
+                <div class="tag">
+                  <span
+                    class="border border-white border-opacity-10 p-1 rounded-md text-white text-xs text-opacity-60"
+                    >SOFTWARE</span
+                  >
+                </div>
+                <div class="name mt-2 text-white text-opacity-90">
+                  <h3>Postman</h3>
+                </div>
+              </div>
+            </a>
+
+            <a class="work-1">
+              <div class="bg-secondary rounded-md p-3">
+                <div
+                  class="img items-center p-8 justify-center flex h-[9rem] w-[9rem]"
+                >
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/1024px-Tailwind_CSS_Logo.svg.png"
+                  />
+                </div>
+                <div class="tag">
+                  <span
+                    class="border border-white border-opacity-10 p-1 rounded-md text-white text-xs text-opacity-60"
+                    >DESIGN</span
+                  >
+                </div>
+                <div class="name mt-2 text-white text-opacity-90">
+                  <h3>Tailwind CSS</h3>
+                </div>
+              </div>
+            </a>
+
+            <a class="work-1 md:flex hidden">
+              <div class="bg-secondary rounded-md p-3">
+                <div
+                  class="img p-8 items-center justify-center flex h-[9rem] w-[9rem]"
+                >
+                  <img
+                    src="https://cdn3.iconfinder.com/data/icons/social-media-2068/64/_shopping-512.png"
+                  />
+                </div>
+                <div class="tag">
+                  <span
+                    class="border border-white border-opacity-10 p-1 rounded-md text-white text-xs text-opacity-60"
+                    >CMS</span
+                  >
+                </div>
+                <div class="name mt-2 text-white text-opacity-90">
+                  <h3>Shopify</h3>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div
+            class="md:ml-[6.5rem] mt-4 flex-row flex gap-3 fadeInUp two animate"
+          >
+            <a class="work-1">
+              <div class="bg-secondary rounded-md p-3">
+                <div
+                  class="img items-center rounded-lg p-8 justify-center flex h-[9rem] w-[9rem]"
+                >
+                  <img src="https://pngimg.com/uploads/mysql/mysql_PNG23.png" />
+                </div>
+                <div class="tag">
+                  <span
+                    class="border border-white border-opacity-10 p-1 rounded-md text-white text-xs text-opacity-60"
+                    >DATABASE</span
+                  >
+                </div>
+                <div class="name mt-2 text-white text-opacity-90">
+                  <h3>My SQL</h3>
+                </div>
+              </div>
+            </a>
+            <a class="work-1">
+              <div class="bg-secondary rounded-md p-3">
+                <div
+                  class="img items-center rounded-lg p-8 justify-center flex h-[9rem] w-[9rem]"
+                >
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png"
+                  />
+                </div>
+                <div class="tag">
+                  <span
+                    class="border border-white border-opacity-10 p-1 rounded-md text-white text-xs text-opacity-60"
+                    >CODE</span
+                  >
+                </div>
+                <div class="name mt-2 text-white text-opacity-90">
+                  <h3>Java Script</h3>
+                </div>
+              </div>
+            </a>
+
+            <a class="work-1">
+              <div class="bg-secondary rounded-md p-3">
+                <div
+                  class="img p-5 items-center justify-center flex h-[9rem] w-[9rem]"
+                >
+                  <img
+                    src="https://s.w.org/style/images/about/WordPress-logotype-wmark-white.png"
+                  />
+                </div>
+                <div class="tag">
+                  <span
+                    class="border border-white border-opacity-10 p-1 rounded-md text-white text-xs text-opacity-60"
+                    >CMS</span
+                  >
+                </div>
+                <div class="name mt-2 text-white text-opacity-90">
+                  <h3>Wordpress</h3>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "1") {
+          window.location.href = "./index.html";
+        } else if (event.key === "2") {
+          window.location.href = "./work/napster.html";
+        } else if (event.key === "3") {
+          window.location.href = "./stack.html";
+        }
+      });
+    </script>
+    <script src="./js/scroll.js"></script>
+  </body>
+</html>

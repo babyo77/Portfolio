@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://i.ibb.co/YXd6143/favicon-32x32.png"
+    />
+    <title>Tanmay | Portfolio</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+      body {
+        font-family: "Inter", "Poppins", sans-serif;
+        color: white;
+      }
+
+      .tooltip {
+        opacity: 0;
+        transform-origin: 50% 50% 0px;
+        transition: opacity 0.3s ease, transform 0.3s ease; /* Add transition */
+        transform: translateX(
+          -10px
+        ); /* Start position for the slide out effect */
+      }
+
+      .icon:hover .tooltip {
+        opacity: 1;
+        pointer-events: auto; /* Enable pointer events on the tooltip */
+        transform: translateX(0); /* Slide out effect */
+      }
+
+      .time {
+        font-family: "DM Mono", sans-serif;
+      }
+
+      .pulse {
+        fill-opacity: 0;
+        transform-origin: 50% 50%;
+        animation-duration: 2s;
+        animation-name: pulse;
+        animation-iteration-count: infinite;
+      }
+      .fill-green {
+        fill: #2ebe8a; /* Green color */
+      }
+      .fill-grey {
+        fill: #a0aec0; /* Grey color */
+      }
+      @keyframes pulse {
+        from {
+          stroke-width: 3px;
+          stroke-opacity: 1;
+          transform: scale(0.3);
+        }
+        to {
+          stroke-width: 0;
+          stroke-opacity: 0;
+          transform: scale(2);
+        }
+      }
+      .tooltip2 {
+        transform: translateX(-50%) translateY(-10px); /* Center horizontally and offset slightly */
+        z-index: 2; /* Ensure the tooltip is above other elements */
+        opacity: 0;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        pointer-events: none;
+      }
+
+      .link:hover .tooltip2 {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateX(-50%) translateY(0); /* Show tooltip on hover */
+      }
+      .link {
+        position: relative; /* Establishes a new stacking context */
+        z-index: 1; /* Ensure the parent container is above other elements */
+      }
+
+      .about,
+      .work {
+        font-weight: 400;
+        font-size: 15px;
+        letter-spacing: 0em;
+        line-height: 1.5em;
+      }
+
+      .img {
+        overflow: hidden;
+        transition: ease-in-out 0.3s;
+      }
+
+      .img img {
+        transition: ease-in-out 0.3s;
+      }
+
+      .work-1:hover .img img {
+        transform: scale(1.1);
+        transition: ease-in-out 0.3s;
+      }
+
+      /* animation */
+      .appear {
+        -webkit-transition: all 0.8s;
+        transition: all 0.8s;
+        opacity: 0;
+        -webkit-transform: translateY(40px);
+        transform: translateY(40px);
+      }
+
+      .appear.inview {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+        -webkit-transition-delay: 0.3s;
+        transition-delay: 0.3s;
+      }
+
+      .appear2 {
+        -webkit-transition: all 0.8s;
+        transition: all 0.8s;
+        opacity: 0;
+        -webkit-transform: translateY(20px);
+        transform: translateY(20px);
+      }
+
+      .appear2.inview2 {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+      }
+
+      .appear2.inview2:nth-child(1) {
+        -webkit-transition-delay: 0.1s;
+        transition-delay: 0.1s;
+      }
+
+      .appear2.inview2:nth-child(2) {
+        -webkit-transition-delay: 0.2s;
+        transition-delay: 0.2s;
+      }
+
+      .appear2.inview2:nth-child(3) {
+        -webkit-transition-delay: 0.3s;
+        transition-delay: 0.3s;
+      }
+
+      .appear2.inview2:nth-child(4) {
+        -webkit-transition-delay: 0.4s;
+        transition-delay: 0.4s;
+      }
+
+      .appear2.inview2:nth-child(5) {
+        -webkit-transition-delay: 0.5s;
+        transition-delay: 0.5s;
+      }
+
+      .appear3 {
+        -webkit-transition: all 0.8s;
+        transition: all 0.8s;
+        opacity: 0;
+        -webkit-transform: translateY(40px);
+        transform: translateY(40px);
+      }
+
+      .appear3.inview {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+        -webkit-transition-delay: 0.3s;
+        transition-delay: 0.3s;
+      }
+
+      /*=== Trigger  ===*/
+      .animate {
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+      }
+
+      /*=== Optional Delays, change values here  ===*/
+      .one {
+        -webkit-animation-delay: 0.5s;
+        -moz-animation-delay: 0.5s;
+        animation-delay: 0.5s;
+      }
+
+      .two {
+        -webkit-animation-delay: 1.5s;
+        -moz-animation-delay: 1.5s;
+        animation-delay: 1.5s;
+      }
+
+      .three {
+        -webkit-animation-delay: 2.5s;
+        -moz-animation-delay: 2.5s;
+        animation-delay: 2.5s;
+      }
+
+      .four {
+        -webkit-animation-delay: 3.5s;
+        -moz-animation-delay: 3.5s;
+        animation-delay: 3.5s;
+      }
+
+      .five {
+        -webkit-animation-delay: 4.5s;
+        -moz-animation-delay: 4.5s;
+        animation-delay: 4.5s;
+      }
+
+      .six {
+        -webkit-animation-delay: 5.5s;
+        -moz-animation-delay: 5.5s;
+        animation-delay: 5.5s;
+      }
+
+      .seven {
+        -webkit-animation-delay: 6.5s;
+        -moz-animation-delay: 6.5s;
+        animation-delay: 6.5s;
+      }
+
+      .eight {
+        -webkit-animation-delay: 7.5s;
+        -moz-animation-delay: 7.5s;
+        animation-delay: 7.5s;
+      }
+
+      /*=== Animations start here  ===*/
+
+      /*==== FADE IN UP ===*/
+      @-webkit-keyframes fadeInUp {
+        from {
+          opacity: 0;
+          -webkit-transform: translate3d(0, 100%, 0);
+          transform: translate3d(0, 100%, 0);
+        }
+
+        to {
+          opacity: 1;
+          -webkit-transform: none;
+          transform: none;
+        }
+      }
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          -webkit-transform: translate3d(0, 100%, 0);
+          transform: translate3d(0, 100%, 0);
+        }
+
+        to {
+          opacity: 1;
+          -webkit-transform: none;
+          transform: none;
+        }
+      }
+
+      .fadeInUp {
+        -webkit-animation-name: fadeInUp;
+        animation-name: fadeInUp;
+      }
+
+      /*=== FADE IN DOWN ===*/
+      .fadeInDown {
+        -webkit-animation-name: fadeInDown;
+        animation-name: fadeInDown;
+      }
+      @-webkit-keyframes fadeInDown {
+        0% {
+          opacity: 0;
+          -webkit-transform: translate3d(0, -100%, 0);
+          transform: translate3d(0, -100%, 0);
+        }
+        100% {
+          opacity: 1;
+          -webkit-transform: none;
+          transform: none;
+        }
+      }
+      @keyframes fadeInDown {
+        0% {
+          opacity: 0;
+          -webkit-transform: translate3d(0, -100%, 0);
+          transform: translate3d(0, -100%, 0);
+        }
+        100% {
+          opacity: 1;
+          -webkit-transform: none;
+          transform: none;
+        }
+      }
+
+      /*=== FADE IN LEFT ===*/
+      @-webkit-keyframes fadeInLeft {
+        from {
+          opacity: 0;
+          -webkit-transform: translate3d(-100%, 0, 0);
+          transform: translate3d(-100%, 0, 0);
+        }
+
+        to {
+          opacity: 1;
+          -webkit-transform: none;
+          transform: none;
+        }
+      }
+      @keyframes fadeInLeft {
+        from {
+          opacity: 0;
+          -webkit-transform: translate3d(-100%, 0, 0);
+          transform: translate3d(-100%, 0, 0);
+        }
+
+        to {
+          opacity: 1;
+          -webkit-transform: none;
+          transform: none;
+        }
+      }
+
+      .fadeInLeft {
+        -webkit-animation-name: fadeInLeft;
+        animation-name: fadeInLeft;
+      }
+
+      /*==== FADE IN RIGHT ===*/
+      @-webkit-keyframes fadeInRight {
+        from {
+          opacity: 0;
+          -webkit-transform: translate3d(100%, 0, 0);
+          transform: translate3d(100%, 0, 0);
+        }
+
+        to {
+          opacity: 1;
+          -webkit-transform: none;
+          transform: none;
+        }
+      }
+      @keyframes fadeInRight {
+        from {
+          opacity: 0;
+          -webkit-transform: translate3d(100%, 0, 0);
+          transform: translate3d(100%, 0, 0);
+        }
+
+        to {
+          opacity: 1;
+          -webkit-transform: none;
+          transform: none;
+        }
+      }
+
+      .fadeInRight {
+        -webkit-animation-name: fadeInRight;
+        animation-name: fadeInRight;
+      }
+
+      /*=== FADE IN  ===*/
+      @-webkit-keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+
+        to {
+          opacity: 1;
+        }
+      }
+      .fadeIn {
+        -webkit-animation-name: fadeIn;
+        animation-name: fadeIn;
+      }
+
+      /*=== FADE IN UP Big ===*/
+      .fadeInUpBig {
+        -webkit-animation-name: fadeInUpBig;
+        animation-name: fadeInUpBig;
+      }
+      @-webkit-keyframes fadeInUpBig {
+        0% {
+          opacity: 0;
+          -webkit-transform: translate3d(0, 2000px, 0);
+          transform: translate3d(0, 2000px, 0);
+        }
+        100% {
+          opacity: 1;
+          -webkit-transform: none;
+          transform: none;
+        }
+      }
+      @keyframes fadeInUpBig {
+        0% {
+          opacity: 0;
+          -webkit-transform: translate3d(0, 2000px, 0);
+          transform: translate3d(0, 2000px, 0);
+        }
+        100% {
+          opacity: 1;
+          -webkit-transform: none;
+          transform: none;
+        }
+      }
+
+      /*=== FADE IN DOWN Big ===*/
+      .fadeInDownBig {
+        -webkit-animation-name: fadeInDownBig;
+        animation-name: fadeInDownBig;
+      }
+      @-webkit-keyframes fadeInDownBig {
+        0% {
+          opacity: 0;
+          -webkit-transform: translate3d(0, -2000px, 0);
+          transform: translate3d(0, -2000px, 0);
+        }
+        100% {
+          opacity: 1;
+          -webkit-transform: none;
+          transform: none;
+        }
+      }
+      @keyframes fadeInDownBig {
+        0% {
+          opacity: 0;
+          -webkit-transform: translate3d(0, -2000px, 0);
+          transform: translate3d(0, -2000px, 0);
+        }
+        100% {
+          opacity: 1;
+          -webkit-transform: none;
+          transform: none;
+        }
+      }
+
+      /*=== FADE IN LEFT Big ===*/
+      .fadeInLeftBig {
+        -webkit-animation-name: fadeInLeftBig;
+        animation-name: fadeInLeftBig;
+      }
+      @-webkit-keyframes fadeInLeftBig {
+        0% {
+          opacity: 0;
+          -webkit-transform: translate3d(-2000px, 0, 0);
+          transform: translate3d(-2000px, 0, 0);
+        }
+        100% {
+          opacity: 1;
+          -webkit-transform: none;
+          transform: none;
+        }
+      }
+      @keyframes fadeInLeftBig {
+        0% {
+          opacity: 0;
+          -webkit-transform: translate3d(-2000px, 0, 0);
+          transform: translate3d(-2000px, 0, 0);
+        }
+        100% {
+          opacity: 1;
+          -webkit-transform: none;
+          transform: none;
+        }
+      }
+
+      /*=== FADE IN RIGHT Big ===*/
+      .fadeInRightBig {
+        -webkit-animation-name: fadeInRightBig;
+        animation-name: fadeInRightBig;
+      }
+      @-webkit-keyframes fadeInRightBig {
+        0% {
+          opacity: 0;
+          -webkit-transform: translate3d(2000px, 0, 0);
+          transform: translate3d(2000px, 0, 0);
+        }
+        100% {
+          opacity: 1;
+          -webkit-transform: none;
+          transform: none;
+        }
+      }
+      @keyframes fadeInRightBig {
+        0% {
+          opacity: 0;
+          -webkit-transform: translate3d(2000px, 0, 0);
+          transform: translate3d(2000px, 0, 0);
+        }
+        100% {
+          opacity: 1;
+          -webkit-transform: none;
+          transform: none;
+        }
+      }
+
+      /* width */
+      ::-webkit-scrollbar {
+        width: 10px;
+        border-radius: 2vh;
+      }
+
+      /* Track */
+      ::-webkit-scrollbar-track {
+        background: #f1f1f100;
+        border-radius: 2vh;
+      }
+
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        border-radius: 1vh;
+        background: #424242;
+      }
+
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+    </style>
+  </head>
+  <body class="bg-bg">
+    <div class="root flex">
+      <!--DESKTOP SIDEBAR-->
+      <div
+        class="sidebar hidden fixed md:flex justify-center items-center h-screen w-[3%] px-8 border-r-white border border-y-0 border-l-transparent border-opacity-10"
+      >
+        <div>
+          <a href="./index.html">
+            <div class="icon">
+              <div
+                class="tooltip items-center flex bg-secondary2 absolute left-14 text-white text-[12.5px] border border-white border-opacity-5 p-1 rounded-lg"
+              >
+                Home
+                <span
+                  class="bg-accent border border-white border-opacity-5 px-1.5 rounded-sm ml-1"
+                  >1</span
+                >
+              </div>
+              <svg
+                width="24px"
+                height="24px"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M2 12.2039C2 9.91549 2 8.77128 2.5192 7.82274C3.0384 6.87421 3.98695 6.28551 5.88403 5.10813L7.88403 3.86687C9.88939 2.62229 10.8921 2 12 2C13.1079 2 14.1106 2.62229 16.116 3.86687L18.116 5.10812C20.0131 6.28551 20.9616 6.87421 21.4808 7.82274C22 8.77128 22 9.91549 22 12.2039V13.725C22 17.6258 22 19.5763 20.8284 20.7881C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.7881C2 19.5763 2 17.6258 2 13.725V12.2039Z"
+                  stroke="#dedede"
+                  stroke-width="1.5"
+                />
+                <path
+                  d="M15 18H9"
+                  stroke="#232323"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+          </a>
+          <a href="./work/napster.html" class="">
+            <div class="icon mt-5">
+              <div
+                class="tooltip items-center flex bg-secondary2 absolute left-14 text-white text-[12.5px] border border-white border-opacity-5 p-1 rounded-lg"
+              >
+                Work
+                <span
+                  class="bg-accent border border-white border-opacity-5 px-1.5 rounded-sm ml-1"
+                  >2</span
+                >
+              </div>
+              <svg
+                width="24px"
+                height="24px"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9 9H15M9 9V15M9 9V6C9 4.34315 7.65685 3 6 3C4.34315 3 3 4.34315 3 6C3 7.65685 4.34315 9 6 9H9ZM15 9V15M15 9H18C19.6569 9 21 7.65685 21 6C21 4.34315 19.6569 3 18 3C16.3431 3 15 4.34315 15 6V9ZM15 15H9M15 15V18C15 19.6569 16.3431 21 18 21C19.6569 21 21 19.6569 21 18C21 16.3431 19.6569 15 18 15H15ZM9 15L6 15C4.34315 15 3 16.3431 3 18C3 19.6569 4.34315 21 6 21C7.65685 21 9 19.6569 9 18V15Z"
+                  stroke="#626262"
+                  stroke-width="1.5"
+                />
+              </svg>
+            </div>
+          </a>
+
+          <a href="./stack.html">
+            <div class="icon mt-5">
+              <div
+                class="tooltip items-center flex bg-secondary2 absolute left-14 text-white text-[12.5px] border border-white border-opacity-5 p-1 rounded-lg"
+              >
+                Stack
+                <span
+                  class="bg-accent border border-white border-opacity-5 px-1.5 rounded-sm ml-1"
+                  >3</span
+                >
+              </div>
+              <svg
+                width="24px"
+                height="24px"
+                viewBox="0 0 16 16"
+                xmlns="http://www.w3.org/2000/svg"
+                version="1.1"
+                fill="none"
+                stroke="#626262"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              >
+                <path
+                  d="m1.75 11 6.25 3.25 6.25-3.25m-12.5-3 6.25 3.25 6.25-3.25m-6.25-6.25-6.25 3.25 6.25 3.25 6.25-3.25z"
+                />
+              </svg>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!--MOBILE SIDEBAR-->
+      <div
+        class="sidebar z-50 bg-bg md:hidden flex justify-center items-center w-screen fixed bottom-0 px-8 border-t-white border border-b-0 border-x-transparent border-opacity-10 align-items-center"
+      >
+        <div class="flex justify-center items-center my-5 gap-8">
+          <a href="./index.html" class="items-center justify-center flex">
+            <div class="icon">
+              <svg
+                width="24px"
+                height="24px"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M2 12.2039C2 9.91549 2 8.77128 2.5192 7.82274C3.0384 6.87421 3.98695 6.28551 5.88403 5.10813L7.88403 3.86687C9.88939 2.62229 10.8921 2 12 2C13.1079 2 14.1106 2.62229 16.116 3.86687L18.116 5.10812C20.0131 6.28551 20.9616 6.87421 21.4808 7.82274C22 8.77128 22 9.91549 22 12.2039V13.725C22 17.6258 22 19.5763 20.8284 20.7881C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.7881C2 19.5763 2 17.6258 2 13.725V12.2039Z"
+                  stroke="#dedede"
+                  stroke-width="1.5"
+                />
+                <path
+                  d="M15 18H9"
+                  stroke="#232323"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+          </a>
+          <a
+            href="./work/napster.html"
+            class="items-center justify-center flex"
+          >
+            <div class="icon">
+              <svg
+                width="24px"
+                height="24px"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9 9H15M9 9V15M9 9V6C9 4.34315 7.65685 3 6 3C4.34315 3 3 4.34315 3 6C3 7.65685 4.34315 9 6 9H9ZM15 9V15M15 9H18C19.6569 9 21 7.65685 21 6C21 4.34315 19.6569 3 18 3C16.3431 3 15 4.34315 15 6V9ZM15 15H9M15 15V18C15 19.6569 16.3431 21 18 21C19.6569 21 21 19.6569 21 18C21 16.3431 19.6569 15 18 15H15ZM9 15L6 15C4.34315 15 3 16.3431 3 18C3 19.6569 4.34315 21 6 21C7.65685 21 9 19.6569 9 18V15Z"
+                  stroke="#626262"
+                  stroke-width="1.5"
+                />
+              </svg>
+            </div>
+          </a>
+
+          <a href="./stack.html" class="items-center justify-center flex">
+            <div class="icon">
+              <svg
+                width="24px"
+                height="24px"
+                viewBox="0 0 16 16"
+                xmlns="http://www.w3.org/2000/svg"
+                version="1.1"
+                fill="none"
+                stroke="#626262"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              >
+                <path
+                  d="m1.75 11 6.25 3.25 6.25-3.25m-12.5-3 6.25 3.25 6.25-3.25m-6.25-6.25-6.25 3.25 6.25 3.25 6.25-3.25z"
+                />
+              </svg>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="main mx-auto w-[40rem] px-8 sm:px-4 sm:my-8 mt-10 mb-24">
+        <div
+          class="time text-opacity-40 font-thin text-white justify-center flex items-center fadeIn animate one"
+        >
+          <span id="user-time"></span>
+        </div>
+        <div
+          class="pfp fadeIn animate one items-center flex justify-center mt-10"
+        >
+          <img
+            id="pfp"
+            class="rounded-full h-20 w-20"
+            src="https://cdn.discordapp.com/avatars/497085547970560021/21b75edc30b18ae5ccfa043a7dd03409.webp?size=4096"
+          />
+        </div>
+        <div
+          class="name fadeIn animate one leading-8 text-[20px] text-center mt-5"
+        >
+          <h1>Tanmay</h1>
+          <h2 class="text-white text-opacity-60 fadeIn animate one">
+            Web Developer
+          </h2>
+        </div>
+        <div
+          class="status fadeIn animate one justify-center flex gap-2 items-center mt-4"
+          id="statusContainer"
+        >
+          <svg class="button" expanded="true" height="30px" width="30px">
+            <circle
+              id="statusCircle"
+              class="fill-green"
+              cx="50%"
+              cy="50%"
+              r="6px"
+            ></circle>
+            <circle class="pulse" cx="50%" cy="50%" r="10px"></circle>
+          </svg>
+          <span id="statusText" class="text-white text-opacity-60 text-[14px]"
+            >I'm currently online</span
+          >
+        </div>
+        <div
+          class="socials mt-5 justify-center items-center flex gap-8 text-white text-opacity-50 fadeIn animate one"
+        >
+          <a
+            class="link"
+            href="https://discord.dog/497085547970560021"
+            target="_blank"
+          >
+            <div
+              class="tooltip2 items-center flex bg-secondary2 absolute bottom-[100%] left-[50%] text-white text-[12.5px] border border-white border-opacity-5 p-1 rounded-lg"
+            >
+              Discord
+            </div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="currentColor"
+              class="bi bi-discord"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M13.545 2.907a13.2 13.2 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.2 12.2 0 0 0-3.658 0 8 8 0 0 0-.412-.833.05.05 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.04.04 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032q.003.022.021.037a13.3 13.3 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019q.463-.63.818-1.329a.05.05 0 0 0-.01-.059l-.018-.011a9 9 0 0 1-1.248-.595.05.05 0 0 1-.02-.066l.015-.019q.127-.095.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.05.05 0 0 1 .053.007q.121.1.248.195a.05.05 0 0 1-.004.085 8 8 0 0 1-1.249.594.05.05 0 0 0-.03.03.05.05 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.2 13.2 0 0 0 4.001-2.02.05.05 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.03.03 0 0 0-.02-.019m-8.198 7.307c-.789 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612m5.316 0c-.788 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612"
+              />
+            </svg>
+          </a>
+
+          <a
+            class="link"
+            href="https://napster-drx.vercel.app/"
+            target="_blank"
+          >
+            <div
+              class="tooltip2 items-center flex bg-secondary2 absolute bottom-[100%] left-[50%] text-white text-[12.5px] border border-white border-opacity-5 p-1 rounded-lg"
+            >
+              Napster
+            </div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="currentColor"
+              class="bi bi-globe-americas"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0M2.04 4.326c.325 1.329 2.532 2.54 3.717 3.19.48.263.793.434.743.484q-.121.12-.242.234c-.416.396-.787.749-.758 1.266.035.634.618.824 1.214 1.017.577.188 1.168.38 1.286.983.082.417-.075.988-.22 1.52-.215.782-.406 1.48.22 1.48 1.5-.5 3.798-3.186 4-5 .138-1.243-2-2-3.5-2.5-.478-.16-.755.081-.99.284-.172.15-.322.279-.51.216-.445-.148-2.5-2-1.5-2.5.78-.39.952-.171 1.227.182.078.099.163.208.273.318.609.304.662-.132.723-.633.039-.322.081-.671.277-.867.434-.434 1.265-.791 2.028-1.12.712-.306 1.365-.587 1.579-.88A7 7 0 1 1 2.04 4.327Z"
+              />
+            </svg>
+          </a>
+
+          <a class="link" href="https://github.com/babyo77" target="_blank">
+            <div
+              class="tooltip2 items-center flex bg-secondary2 absolute bottom-[100%] left-[50%] text-white text-[12.5px] border border-white border-opacity-5 p-1 rounded-lg"
+            >
+              Github
+            </div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="currentColor"
+              class="bi bi-github"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"
+              />
+            </svg>
+          </a>
+        </div>
+
+        <div
+          class="btns mt-5 justify-center items-center flex gap-4 fadeIn animate one"
+        >
+          <a
+            href="mailto:devisantosh504@gmail.com"
+            class="btn py-2 px-4 md:px-6 bg-white text-black hover:bg-opacity-90 duration-200 ease-in-out rounded-lg flex items-center gap-2 text-sm cursor-pointer"
+            >Contact Me
+            <svg
+              width="22px"
+              height="22px"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g clip-path="url(#clip0_15_17)">
+                <rect width="24" height="24" />
+                <path
+                  d="M3 17.5V6.5C3 5.94772 3.44772 5.5 4 5.5H12H20C20.5523 5.5 21 5.94772 21 6.5V17.5C21 18.0523 20.5523 18.5 20 18.5H4C3.44772 18.5 3 18.0523 3 17.5Z"
+                  stroke="#000000"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M3 6L12 12L21 6"
+                  stroke="#000000"
+                  stroke-linejoin="round"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_15_17">
+                  <rect width="24" height="24" fill="white" />
+                </clipPath>
+              </defs></svg
+          ></a>
+          <span class="text-white text-opacity-50 font-light">or</span>
+          <a
+            id="copyEmail"
+            class="btn py-2 px-4 md:px-6 hover:bg-opacity-95 duration-200 ease-in-out bg-secondary border border-white border-opacity-5 text-white rounded-lg flex items-center gap-2 text-sm cursor-pointer"
+            >Copy Email
+            <svg
+              width="22px"
+              height="22px"
+              viewBox="0 0 1024 1024"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill="#fff"
+                d="M768 832a128 128 0 0 1-128 128H192A128 128 0 0 1 64 832V384a128 128 0 0 1 128-128v64a64 64 0 0 0-64 64v448a64 64 0 0 0 64 64h448a64 64 0 0 0 64-64h64z"
+              />
+              <path
+                fill="#fff"
+                d="M384 128a64 64 0 0 0-64 64v448a64 64 0 0 0 64 64h448a64 64 0 0 0 64-64V192a64 64 0 0 0-64-64H384zm0-64h448a128 128 0 0 1 128 128v448a128 128 0 0 1-128 128H384a128 128 0 0 1-128-128V192A128 128 0 0 1 384 64z"
+              /></svg
+          ></a>
+        </div>
+
+        <div class="about mt-16 fadeInUp animate two w-full flex">
+          <div class="pr-10">
+            <span class="text-white text-opacity-60">About</span>
+          </div>
+          <div class="text-white text-opacity-90">
+            <h3>
+              I'm Tanmay, a 19-year-old fullstack developer from India.
+              <br />
+              <br />
+              With almost a year of coding I've learnt how to center a div!
+              (position absolute.. right?)
+              <br />
+              <br />
+              Currently working on @napster-drx, a service that give access to
+              millions of songs.
+            </h3>
+          </div>
+        </div>
+
+        <div class="work mt-16 fadeInUp animate two w-full flex">
+          <div class="pr-10">
+            <span class="text-white text-opacity-60">Work</span>
+          </div>
+          <div class="flex-col">
+            <a class="work-1" href="./work/napster.html">
+              <div
+                class="bg-secondary hover:bg-secondary2 duration-500 ease-in-out border border-white border-opacity-5 rounded-md p-2 w-full"
+              >
+                <div class="title flex items-center gap-1">
+                  <img
+                    class="ml-0.5 w-[22px] rounded-full h-[22px] opacity-90"
+                    src="https://napster-drx.vercel.app/newfavicon.jpg"
+                  />
+                  <h2>Napster</h2>
+                </div>
+                <div
+                  class="img mt-3 border border-white border-opacity-5 rounded-lg"
+                >
+                  <img
+                    class="rounded-lg"
+                    src="https://www.apple.com/v/apple-music/aa/images/shared/og__ckjrh2mu8b2a_image.png?202403220237"
+                  />
+                </div>
+              </div>
+            </a>
+
+            <a class="work-1" href="./work/ngl.html">
+              <div
+                class="bg-secondary mt-5 hover:bg-secondary2 duration-500 ease-in-out border border-white border-opacity-5 rounded-md p-2 w-full"
+              >
+                <div class="title flex items-center gap-2">
+                  <img
+                    class="ml-0.5 w-[22px] rounded-full h-[22px] opacity-90"
+                    src="https://ngl-drx.vercel.app/icon.jpg"
+                  />
+                  <h2>Ngl Clone</h2>
+                </div>
+                <div
+                  class="img mt-3 border border-white border-opacity-5 rounded-lg"
+                >
+                  <img
+                    class="rounded-lg"
+                    src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b2/21/c9/b221c979-86a7-af8e-31fa-778aa33a6f81/AppIcon-0-0-1x_U007emarketing-0-2-0-85-220.jpeg/1200x600wa.png"
+                  />
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      fetch("https://api.lanyard.rest/v1/users/497085547970560021")
+        .then((response) => response.json())
+        .then((data) => {
+          const avatarHash = data.data.discord_user.avatar;
+          const avatarUrl = `https://cdn.discordapp.com/avatars/497085547970560021/${avatarHash}.webp?size=4096`;
+          const profileImg = document.getElementById("pfp");
+          profileImg.src = avatarUrl;
+
+          const statusContainer = document.getElementById("statusContainer");
+          const statusCircle = document.getElementById("statusCircle");
+          const statusText = document.getElementById("statusText");
+
+          if (data.data.discord_status === "online") {
+            statusCircle.classList.remove("fill-grey");
+            statusCircle.classList.add("fill-green");
+            statusText.textContent = "I'm currently online";
+          } else {
+            statusCircle.classList.remove("fill-green");
+            statusCircle.classList.add("fill-grey");
+            statusText.textContent = "I'm currently offline";
+          }
+        })
+        .catch((error) => console.error("Error fetching data:", error));
+    </script>
+
+    <script>
+      document
+        .getElementById("copyEmail")
+        .addEventListener("click", function () {
+          var emailText = "devisantosh504@gmail.com";
+          navigator.clipboard.writeText(emailText).then(
+            function () {
+              var button = document.getElementById("copyEmail");
+              button.innerHTML =
+                "Copied! <svg width='22px' height='22px' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg' version='1.1' fill='none' stroke='#fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'><path d='m1.75 9.75 2.5 2.5m3.5-4 2.5-2.5m-4.5 4 2.5 2.5 6-6.5'/></svg>";
+              setTimeout(function () {
+                button.innerHTML =
+                  "Copy Email <svg width='22px' height='22px' viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg'><path fill='#fff' d='M768 832a128 128 0 0 1-128 128H192A128 128 0 0 1 64 832V384a128 128 0 0 1 128-128v64a64 64 0 0 0-64 64v448a64 64 0 0 0 64 64h448a64 64 0 0 0 64-64h64z'/><path fill='#fff' d='M384 128a64 64 0 0 0-64 64v448a64 64 0 0 0 64 64h448a64 64 0 0 0 64-64V192a64 64 0 0 0-64-64H384zm0-64h448a128 128 0 0 1 128 128v448a128 128 0 0 1-128 128H384a128 128 0 0 1-128-128V192A128 128 0 0 1 384 64z'/></svg>";
+              }, 2000);
+            },
+            function (err) {
+              console.error("Failed to copy text: ", err);
+            }
+          );
+        });
+    </script>
+
+    <script>
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "1") {
+          window.location.href = "./index.html";
+        } else if (event.key === "2") {
+          window.location.href = "./work/napster.html";
+        } else if (event.key === "3") {
+          window.location.href = "./stack.html";
+        }
+      });
+    </script>
+    <script src="./js/scroll.js"></script>
+    <script src="./js/time.js"></script>
+  </body>
+</html>
