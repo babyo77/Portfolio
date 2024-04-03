@@ -711,7 +711,7 @@
           <img
             id="pfp"
             class="rounded-full h-20 w-20"
-            src="https://cdn.discordapp.com/avatars/497085547970560021/21b75edc30b18ae5ccfa043a7dd03409.webp?size=4096"
+            src="https://cdn.discordapp.com/avatars/497085547970560021/ae252d246e9df2336dec3c4541de57a8.webp?size=4096"
           />
         </div>
         <div
@@ -722,6 +722,7 @@
             Web Developer
           </h2>
         </div>
+
         <div
           class="status fadeIn animate one justify-center flex gap-2 items-center mt-4"
           id="statusContainer"
@@ -736,10 +737,25 @@
             ></circle>
             <circle class="pulse" cx="50%" cy="50%" r="10px"></circle>
           </svg>
+          <a
+          class="link m-0 p-0 cursor-pointer"
+         
+          target="_blank"
+        >
+          <div
+         
+            class="tooltip2 items-center flex bg-secondary2 absolute bottom-[100%] left-[50%] text-white text-[12.5px] w-full  border border-white border-opacity-5 p-1 rounded-lg"
+          >
+           <p  id="details" class=" text-xs">
+
+             
+           </p> 
+          </div>
           <span id="statusText" class="text-white text-opacity-60 text-[14px]"
             >I'm currently online</span
           >
         </div>
+
         <div
           class="socials mt-5 justify-center items-center flex gap-8 text-white text-opacity-50 fadeIn animate one"
         >
@@ -942,6 +958,18 @@
           const avatarHash = data.data.discord_user.avatar;
           const avatarUrl = `https://cdn.discordapp.com/avatars/497085547970560021/${avatarHash}.webp?size=4096`;
           const profileImg = document.getElementById("pfp");
+          const details = document.getElementById("details");
+          const activityName = data.data.activities[0].name;
+          const activityState = data.data.activities[0].state;
+          const activityDetails = data.data.activities[0].details;
+          const activityTime = data.data.activities[0].timestamps.start;
+          details.textContent = activityName + " " + activityState + " " + activityDetails
+          console.log(
+            activityName,
+            activityState,
+            activityDetails,
+            activityTime
+          );
           profileImg.src = avatarUrl;
 
           const statusContainer = document.getElementById("statusContainer");
