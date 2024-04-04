@@ -746,7 +746,7 @@
          
             class="tooltip2 items-center flex bg-secondary2 absolute bottom-[100%] left-[50%] text-white text-[12.5px] w-full  border border-white border-opacity-5 p-1 rounded-lg"
           >
-           <p  id="details" class=" text-xs">
+           <p  id="details" class=" text-xs px-1 tracking-tighter leading-5">
             idle
              
            </p> 
@@ -963,7 +963,7 @@
           const activityState = data.data.activities[0].state;
           const activityDetails = data.data.activities[0].details;
           const activityTime = data.data.activities[0].timestamps.start;
-          details.textContent = activityName + " " + activityState + " " + activityDetails
+          details.textContent = activityName + " " + activityState + " " +  activityDetails
         
           profileImg.src = avatarUrl;
           console.log('%cTanmay', 'color: white;font-weight:900;font-size:1rem; padding:20px;');
